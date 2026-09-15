@@ -1,0 +1,8 @@
+# DrillsBuddy ESP32-C6 pod firmware (see mpconfigvariant_DRILLSBUDDY.cmake).
+
+# A Master Mode pod holds the backend link plus its slave links. The C6
+# controller pre-allocates memory for only this many connections and
+# takes any further one from the system heap at connect time - which
+# failed with HCI 0x07/0x09 (Memory Capacity / Connection Limit Exceeded)
+# on the third link once MicroPython's heap had grown into that heap.
+CONFIG_BT_LE_CONN_RESERVED_MEMORY_COUNT=4
