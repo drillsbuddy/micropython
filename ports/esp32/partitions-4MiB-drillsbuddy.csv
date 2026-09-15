@@ -1,0 +1,10 @@
+# DrillsBuddy ESP32-C6 pods (4MiB flash): the pod application is frozen
+# into the firmware image (boards/ESP32_GENERIC_C6/manifest_drillsbuddy.py),
+# which doesn't fit the stock 0x1F0000 factory partition - so 3MiB for the
+# app and the last 1MiB for the filesystem (a pod keeps a few small config
+# files there; ~50 KB in practice).
+# Name,   Type, SubType, Offset,  Size, Flags
+nvs,      data, nvs,     0x9000,  0x6000,
+phy_init, data, phy,     0xf000,  0x1000,
+factory,  app,  factory, 0x10000, 0x2F0000,
+vfs,      data, fat,     0x300000, 0x100000,

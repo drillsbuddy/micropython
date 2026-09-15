@@ -6,9 +6,9 @@ import os
 
 include("$(PORT_DIR)/boards/manifest.py")
 
-_mpy_dir = os.path.abspath(__file__)
-for _ in range(5):  # boards/ESP32_GENERIC_C6/<this> -> ports/esp32 -> the tree
-    _mpy_dir = os.path.dirname(_mpy_dir)
+# manifestfile.py runs this with the manifest's own directory as cwd
+# (ports/esp32/boards/ESP32_GENERIC_C6).
+_mpy_dir = os.path.abspath(os.path.join(os.getcwd(), "..", "..", "..", ".."))
 _device = os.environ.get("DRILLSBUDDY_DEVICE_DIR") or os.path.normpath(
     os.path.join(_mpy_dir, "..", "drillsbuddy-device")
 )

@@ -6,3 +6,6 @@
 # failed with HCI 0x07/0x09 (Memory Capacity / Connection Limit Exceeded)
 # on the third link once MicroPython's heap had grown into that heap.
 CONFIG_BT_LE_CONN_RESERVED_MEMORY_COUNT=4
+
+# The frozen application doesn't fit the stock 2MiB app partition.
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions-4MiB-drillsbuddy.csv"
