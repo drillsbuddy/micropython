@@ -15,4 +15,4 @@ list(APPEND MICROPY_DEF_BOARD
     MICROPY_HW_BOARD_NAME="DrillsBuddy ESP32-C6"
 )
 
-set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/manifest_drillsbuddy.py)
+set(MICROPY_FROZEN_MANIFEST ${MICROPY_BOARD_DIR}/../manifest_drillsbuddy.py)

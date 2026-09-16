@@ -1,4 +1,5 @@
-# Freeze the drillsbuddy-device application into the image (see
+# Freeze the drillsbuddy-device application into the image - shared by every
+# board's DRILLSBUDDY variant (ESP32_GENERIC_C6, ESP32_GENERIC_C3: see their
 # mpconfigvariant_DRILLSBUDDY.cmake). The sibling checkout is expected at
 # ../drillsbuddy-device relative to this MicroPython tree, or set
 # DRILLSBUDDY_DEVICE_DIR.
@@ -7,8 +8,8 @@ import os
 include("$(PORT_DIR)/boards/manifest.py")
 
 # manifestfile.py runs this with the manifest's own directory as cwd
-# (ports/esp32/boards/ESP32_GENERIC_C6).
-_mpy_dir = os.path.abspath(os.path.join(os.getcwd(), "..", "..", "..", ".."))
+# (ports/esp32/boards).
+_mpy_dir = os.path.abspath(os.path.join(os.getcwd(), "..", "..", ".."))
 _device = os.environ.get("DRILLSBUDDY_DEVICE_DIR") or os.path.normpath(
     os.path.join(_mpy_dir, "..", "drillsbuddy-device")
 )

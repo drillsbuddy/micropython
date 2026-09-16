@@ -1,0 +1,6 @@
+# DrillsBuddy ESP32-C3 pod firmware (see mpconfigvariant_DRILLSBUDDY.cmake).
+
+# The frozen application doesn't fit the stock 2MiB app partition; same
+# 3MiB app + 1MiB filesystem layout as the ESP32-C6 pods (4MiB flash on
+# both the XIAO ESP32C3 and the Waveshare ESP32-C3-Zero).
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions-4MiB-drillsbuddy.csv"
