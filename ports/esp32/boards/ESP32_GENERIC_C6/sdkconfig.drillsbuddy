@@ -5,10 +5,13 @@
 # takes any further one from the system heap at connect time - which
 # failed with HCI 0x07/0x09 (Memory Capacity / Connection Limit Exceeded)
 # on the third link once MicroPython's heap had grown into that heap.
-# 5 links: the backend's plus four slaves (master_mode.MAX_SLAVES keeps the
-# last slot for the backend). Memory for all of them reserved at init.
-CONFIG_BT_NIMBLE_MAX_CONNECTIONS=5
-CONFIG_BT_LE_CONN_RESERVED_MEMORY_COUNT=5
+# 6 links: the backend's, four slaves (master_mode.MAX_SLAVES = 4 leaves
+# the other two slots free) and the master's HID remote control (a BLE
+# camera shutter button, master_mode._Remote -
+# plan-master-ble-remote-button.md). Memory for all of them reserved at
+# init.
+CONFIG_BT_NIMBLE_MAX_CONNECTIONS=6
+CONFIG_BT_LE_CONN_RESERVED_MEMORY_COUNT=6
 
 # The frozen application doesn't fit the stock 2MiB app partition.
 CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions-4MiB-drillsbuddy.csv"
